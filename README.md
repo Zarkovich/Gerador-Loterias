@@ -1,1 +1,1 @@
-# Gerador de numeros loteria em TypeScript Estruturando contextos
+# Gerador de numeros loteria em React-TypeScript Estruturando contextos
