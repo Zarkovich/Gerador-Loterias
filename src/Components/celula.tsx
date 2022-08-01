@@ -1,22 +1,31 @@
 import styled from "styled-components";
 
+// !Styled
 const Container = styled.div`
   width: 50px;
   height: 50px;
 `;
 
-const Circulo = styled.span`
-  text-align: center;
-  display: block;
-  background-color: #a8ffa8;
+interface Circulo {
+  background?: string;
+}
+
+const Circulo = styled.span<Circulo>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${(props) =>
+    props.background === "mega" ? "green" : "blueviolet"};
+  border-radius: 50%;
   width: 100%;
   height: 100%;
 `;
 
-function Celula() {
+// * Componente
+function Celula({ numero, jogo }: { numero: number; jogo?: string }) {
   return (
     <Container>
-      <Circulo>12</Circulo>
+      <Circulo background={jogo}>{numero}</Circulo>
     </Container>
   );
 }

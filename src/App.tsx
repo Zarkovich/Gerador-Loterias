@@ -1,9 +1,12 @@
-import Celula from "./Components/celula";
+import Inputs from "./Components/Inputs";
+import { SelectContextProvider } from "./Contexts/Selections.context";
 
 function App() {
   return (
     <>
-      <Celula />
+      <SelectContextProvider>
+        <Inputs />
+      </SelectContextProvider>
     </>
   );
 }
