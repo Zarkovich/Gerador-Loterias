@@ -4,8 +4,14 @@ import styled from "styled-components";
 
 // ! Style:
 const Display = styled.div`
+  margin: auto;
+  margin-top: 50px;
+
   display: flex;
-  column-gap: 15px;
+  flex-direction: column;
+  row-gap: 15px;
+
+  width: 300px;
 `;
 
 const Jogos = styled.input`
@@ -41,7 +47,8 @@ const TipoJogo = styled.select`
 `;
 
 const Submit = styled.button`
-  background-color: transparent;
+  background-color: #b8ffb8;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(0, 0, 0, 0.2);
 
   border-radius: 6px;
   border: 1px solid black;
@@ -53,6 +60,7 @@ const Submit = styled.button`
 
   &:hover {
     background-color: #c4c4c4;
+    color: black;
   }
 `;
 
@@ -73,16 +81,18 @@ function Inputs() {
 
   function handleValueSelect(e: React.ChangeEvent<HTMLSelectElement>) {
     contexto.setJogoTipo(e.target.value);
+    if (contexto.jogoTipo === "mega") contexto.setJogo(15);
+    else contexto.setJogo(6);
   }
 
   const handleSubmit = () => {
-    console.log(contexto.jogo, contexto.quantidade, contexto.jogoTipo);
+    contexto.setShowResults(true);
   };
 
   return (
     <Display>
       <label htmlFor='Jogos'>
-        Quantidade de numeros:
+        Quantidade de numeros:{" "}
         <Jogos
           type='number'
           value={contexto.jogo}
@@ -90,7 +100,7 @@ function Inputs() {
         />
       </label>
       <label htmlFor='Quantidade'>
-        Quantidade de Jogos:
+        Quantidade de Jogos:{" "}
         <Quantidade
           type='number'
           value={contexto.quantidade}

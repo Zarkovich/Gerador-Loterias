@@ -14,8 +14,11 @@ const Circulo = styled.span<Circulo>`
   display: flex;
   align-items: center;
   justify-content: center;
+
   background-color: ${(props) =>
     props.background === "mega" ? "green" : "blueviolet"};
+  color: white;
+
   border-radius: 50%;
   width: 100%;
   height: 100%;
